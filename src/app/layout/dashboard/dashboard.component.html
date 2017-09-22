@@ -1,0 +1,210 @@
+<div [@routerTransition]>
+
+    <!--ADD ACCOUNT modal-->
+    <app-modal></app-modal>
+
+    
+    <app-subPlan></app-subPlan>
+
+
+
+
+
+    <!--ADD ACCOUNT modal end-->
+
+    <!--Account plan Modal-->
+    <!--<button class="btn btn-modal" (click)="open(content)">Add New Plan</button>
+    <ng-template #content let-c="close" let-d="dismiss">
+
+        <div class="modal-header">
+            <h4 class="modal-title ">Add New Plan</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+        </div>
+
+
+        <div class="modal-body">
+
+
+
+            <form #subscriptionplan="ngForm" (ngSubmit)="subscription(subscriptionplan.value)" [formGroup]="myform" novalidate>
+  <div>
+      <label for="Title"> Title* </label>
+      <input type="Title" class="form-control input-underline input-lg" id="title" placeholder="Title" name="Title" autofocus [(ngModel)]="Title"
+                                formControlName="Title" required />
+  </div>
+  <div>    
+            <label for="Price"> Price* </label>
+      <input type="text" class="form-control input-underline input-lg" id="price" placeholder="Price" name="Price"  [(ngModel)]="Price"
+                                formControlName="Price" required />
+  </div> 
+
+  <div>   
+
+            <label for="">Billing Frequency* </label>
+            <select>
+                <option>Select</option>
+                <option>Trial</option>
+                <option>Paid</option>
+            </select>
+  </div>
+
+  <div>   
+
+            <label for="NOA">No of Account* </label>
+      <input type="text" class="form-control input-underline input-lg" id="NOA" placeholder="NOA" name="NOA"  [(ngModel)]="NOA"
+                                formControlName="NOA" required />
+  </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" [routerLink]="['/dashboard']">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        </div>
+
+            </form>
+
+
+        </div>
+
+
+    </ng-template>-->
+    <!--Account plan Modal end-->
+
+
+    <!--User social acc panel-->
+    <div class="row">
+        <div *ngFor="let post of posts" class="list-group col-lg-4 ">
+            <div class="panel">
+                <div class="list-group-item pane_head">
+                    <div class="text-center"> {{post.UserName}} </div>
+                    <div class="fa">
+                        <!--<i [class]="acc.fa_url" aria-hidden="true"></i>-->
+                    </div>
+                </div>
+
+                <div class="list-group-item pane_foot">
+
+                    <div class="img-div">
+                        <img src="{{post.ProfilepicUrl}}" alter="Image" class="image_url" />
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-4">
+                                <div class="pane_card_color text-center">yes</div>
+                                <div class="pane_card_color text-center">Running</div>
+                                <button class="btn dashboard-btn" (click)="btnClick()">Settings</button>
+                            </div>
+                            <div class="col col-lg-4">
+                                <div class="pane_card_color text-center">{{post.Followers}} </div>
+                                <div class="pane_card_color text-center">Followers</div>
+                                <button class="btn dashboard-btn" (click)="btnClick()">Stats</button>
+                            </div>
+                            <div class="col col-lg-4">
+                                <div class="pane_card_color text-center"> {{post.Provider}} </div>
+                                <div class="pane_card_color text-center">Provider</div>
+                                <button class="btn  dashboard-btn" (click)="btnClick()">Access</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--modal button-->
+    <!--<button class="waves-effect waves-light btn btn-primary" data-toggle="modal" data-target="#addAccount" >Add Account</button>-->
+    <!--modal button end-->
+
+
+
+    <!--Modal end-->
+    <!--<button class="waves-effect waves-light btn" (click)="btnClick()">Settings</button>-->
+    <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <hr />
+
+
+
+
+
+                    <!--<div class="row">
+                    <div class="col">
+                        <div><label>
+         Title*
+                       </label>
+
+                        </div>
+                        <input type="text" class="form-control input-underline input-lg" id="Title" placeholder="Title" name="Title" autofocus [(ngModel)]="Title"
+                            formControlName="Title" required/>
+                    </div>
+                    <div class="col">
+                        <label>
+         Price*($)
+                        </label>
+                        <input type="text" class="form-control input-underline input-lg" id="Price" placeholder="Price" name="Price"  [(ngModel)]="Price"
+                            formControlName="Price" value="Price" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>
+         Billing Frequency*
+                        </label>
+                        <select>
+         <option value="select">Select billing frequency</option>
+         <option value="trail">Trail</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+         
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>
+         No of Account*
+                        </label>
+                        <input type="text" class="form-control input-underline input-lg" id="NOA" placeholder="NOA" name="NOA"  [(ngModel)]="NOA"
+                            formControlName="NOA" value="NOA" required/>
+                    </div>
+                </div>
+
+                Features
+                <div class="row">
+                    <div class="col-sm-6">
+                        Number of tags per service
+                    </div>
+
+                    <div class="col-sm-6 right">
+                        Unlimited<input type="radio" name="tags" value="unlimited" checked/> Limited
+                        <input type="radio" name="tags" value="limited" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        Speed of interaction
+                    </div>
+
+                    <div class="col-sm-6 right">
+                        High<input name="speed" type="radio" checked/> Low
+                        <input name="speed" type="radio" />
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        Super Targeting
+                    </div>
+
+                    <div class="col-sm-6 right">
+                        <input type="checkbox" />
+
+                    </div>
+
+                </div>-->
